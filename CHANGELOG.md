@@ -249,11 +249,9 @@ e.g.
     name: My Project Go Benchmark
     tool: 'go'
     output-file-path: output.txt
-    github-token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+    github-token: ${{ secrets.GITHUB_TOKEN }}
     auto-push: true
 ```
-
-Note that you need to make a personal access token for deploying GitHub Pages from GitHub Action workflow. Please read `RADME.md` for more details.
 
 [Changes][v1.1.0]
 
