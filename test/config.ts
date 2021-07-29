@@ -49,7 +49,7 @@ describe('configFromJobInput()', function() {
         'max-items-in-chart': '',
     };
 
-    const validation_tests = [
+    const validationTests = [
         {
             what: 'wrong name',
             inputs: { ...defaultInputs, name: '' },
@@ -167,7 +167,7 @@ describe('configFromJobInput()', function() {
         expected: RegExp;
     }>;
 
-    for (const test of validation_tests) {
+    for (const test of validationTests) {
         it('validates ' + test.what, async function() {
             mockInputs(test.inputs);
             await A.rejects(configFromJobInput, test.expected);

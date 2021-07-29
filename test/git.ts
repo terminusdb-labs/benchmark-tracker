@@ -1,3 +1,8 @@
+/*
+eslint @typescript-eslint/naming-convention:
+    [ "error", { "selector": "objectLiteralProperty", "format": null } ]
+*/
+
 import { strict as A } from 'assert';
 import { deepStrictEqual as eq, notDeepStrictEqual as neq } from 'assert';
 import mock = require('mock-require');
@@ -102,6 +107,7 @@ describe('git', function() {
             ok(args);
             eq(args[0], 'git');
             eq(args[1], userArgs.concat(['log', '--oneline']));
+            // eslint-disable-next-line @typescript-eslint/ban-types
             ok('listeners' in (args[2] as object));
         });
 

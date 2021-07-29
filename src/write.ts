@@ -71,6 +71,7 @@ function biggerIsBetter(tool: ToolType): boolean {
         case 'catch2':
             return false;
     }
+    throw new Error(`biggerIsBetter: unexpected tool '${tool}'`);
 }
 
 interface Alert {
@@ -138,7 +139,6 @@ function strVal(b: BenchmarkResult): string {
 
 function commentFooter(): string {
     const repo = getCurrentRepo();
-    // eslint-disable-next-line @typescript-eslint/camelcase
     const repoUrl = repo.html_url ?? '';
     const actionUrl = repoUrl + '/actions?query=workflow%3A' + encodeURIComponent(github.context.workflow);
 
@@ -220,13 +220,11 @@ async function leaveComment(commitId: string, body: string, token: string) {
     core.debug('Sending comment:\n' + body);
 
     const repo = getCurrentRepo();
-    // eslint-disable-next-line @typescript-eslint/camelcase
     const repoUrl = repo.html_url ?? '';
     const client = new github.GitHub(token);
     const res = await client.repos.createCommitComment({
         owner: repo.owner.login,
         repo: repo.name,
-        // eslint-disable-next-line @typescript-eslint/camelcase
         commit_sha: commitId,
         body,
     });
@@ -280,7 +278,6 @@ async function handleAlert(benchName: string, curSuite: Benchmark, prevSuite: Be
             throw new Error("'comment-on-alert' input is set but 'github-token' input is not set");
         }
         const res = await leaveComment(curSuite.commit.id, body, githubToken);
-        // eslint-disable-next-line @typescript-eslint/camelcase
         url = res.data.html_url;
         message = body + `\nComment was generated at ${url}`;
     }
@@ -312,7 +309,6 @@ function addBenchmarkToDataJson(
     data: DataJson,
     maxItems: number | null,
 ): Benchmark | null {
-    // eslint-disable-next-line @typescript-eslint/camelcase
     const htmlUrl = github.context.payload.repository?.html_url ?? '';
 
     let prevBench: Benchmark | null = null;
@@ -482,7 +478,7 @@ async function writeBenchmarkToExternalJson(
     return prevBench;
 }
 
-export async function writeBenchmark(bench: Benchmark, config: Config) {
+export async function writeBenchmark(bench: Benchmark, config: Config): Promise<void> {
     const { name, externalDataJsonPath } = config;
     const prevBench = externalDataJsonPath
         ? await writeBenchmarkToExternalJson(bench, externalDataJsonPath, config)

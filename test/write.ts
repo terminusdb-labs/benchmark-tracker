@@ -1,3 +1,8 @@
+/*
+eslint @typescript-eslint/naming-convention:
+    [ "error", { "selector": "objectLiteralProperty", "format": null } ]
+*/
+
 import { deepStrictEqual as eq, ok as assertOk } from 'assert';
 import * as path from 'path';
 import { promises as fs } from 'fs';
@@ -770,7 +775,7 @@ describe('writeBenchmark()', function() {
                     ok(json.lastUpdate > t.data.lastUpdate);
                     eq(json.repoUrl, t.data.repoUrl);
                     for (const name of Object.keys(t.data.entries)) {
-                        const entries = t.data.entries[name];
+                        const entries: Benchmark[] = t.data.entries[name];
                         if (name === t.config.name) {
                             if (t.config.maxItemsInChart === null || len < t.config.maxItemsInChart) {
                                 eq(len, entries.length + 1, name);

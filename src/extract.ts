@@ -92,7 +92,7 @@ export interface PytestBenchmarkJson {
         fullname: string;
         params: null | string[];
         param: null | string;
-        extra_info: object;
+        extra_info: Record<string, unknown>;
         options: {
             disable_gc: boolean;
             time: string;
@@ -139,7 +139,6 @@ function getHumanReadableUnitValue(seconds: number): [number, string] {
 }
 
 function getCommit(): Commit {
-    /* eslint-disable @typescript-eslint/camelcase */
     if (github.context.payload.head_commit) {
         return github.context.payload.head_commit;
     }
@@ -170,7 +169,6 @@ function getCommit(): Commit {
         timestamp,
         url,
     };
-    /* eslint-enable @typescript-eslint/camelcase */
 }
 
 function extractCargoResult(output: string): BenchmarkResult[] {

@@ -1,3 +1,8 @@
+/*
+eslint @typescript-eslint/naming-convention:
+    [ "error", { "selector": "objectLiteralProperty", "format": null } ]
+*/
+
 import * as path from 'path';
 import { strict as A } from 'assert';
 import mock = require('mock-require');
@@ -5,7 +10,6 @@ import { ToolType } from '../src/config';
 import { BenchmarkResult } from '../src/extract';
 
 const dummyWebhookPayload = {
-    // eslint-disable-next-line @typescript-eslint/camelcase
     head_commit: {
         author: null,
         committer: null,

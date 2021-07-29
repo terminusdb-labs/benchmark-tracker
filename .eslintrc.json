@@ -32,7 +32,7 @@
         "@typescript-eslint/no-extra-non-null-assertion": "error",
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
-        "@typescript-eslint/ban-ts-ignore": "error",
+        "@typescript-eslint/ban-ts-comment": "error",
         "@typescript-eslint/prefer-includes": "error",
         "@typescript-eslint/prefer-for-of": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
@@ -56,7 +56,22 @@
             "rules": {
                 "@typescript-eslint/no-explicit-any": "off",
                 "@typescript-eslint/no-var-requires": "off",
-                "@typescript-eslint/camelcase": "off",
+                "camelcase": "off",
+                "@typescript-eslint/naming-convention": [
+                    "error",
+                    {
+                        "selector": "default",
+                        "format": ["camelCase"]
+                    },
+                    {
+                        "selector": "variable",
+                        "format": ["camelCase", "UPPER_CASE"]
+                    },
+                    {
+                        "selector": "typeLike",
+                        "format": ["PascalCase"]
+                    }
+                ],
                 "mocha/no-setup-in-describe": "off",
                 "mocha/no-hooks-for-single-case": "off",
                 "mocha/no-exclusive-tests": "error"
