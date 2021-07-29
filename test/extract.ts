@@ -42,6 +42,15 @@ describe('extractResult()', function() {
         file?: string;
     }> = [
         {
+            tool: 'generic',
+            file: 'generic.json',
+            expected: [
+                { name: 'a', value: 1, unit: 'z' },
+                { name: 'b', value: 2, unit: 'y', range: 'm' },
+                { name: 'c', value: 3, unit: 'x', extra: '$€£' },
+            ],
+        },
+        {
             tool: 'cargo',
             expected: [
                 {

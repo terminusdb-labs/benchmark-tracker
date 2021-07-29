@@ -58,6 +58,8 @@ async function addIndexHtmlIfNeeded(dir: string) {
 
 function biggerIsBetter(tool: ToolType): boolean {
     switch (tool) {
+        case 'generic':
+            return false;
         case 'cargo':
             return false;
         case 'go':

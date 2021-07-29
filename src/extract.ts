@@ -171,6 +171,16 @@ function getCommit(): Commit {
     };
 }
 
+function extractGenericResult(output: string): BenchmarkResult[] {
+    let json: BenchmarkResult[];
+    try {
+        json = JSON.parse(output);
+    } catch (err) {
+        throw new Error(`File must be JSON following the BenchmarkResult schema: ${err.message}`);
+    }
+    return json;
+}
+
 function extractCargoResult(output: string): BenchmarkResult[] {
     const lines = output.split(/\r?\n/g);
     const ret = [];
@@ -419,6 +429,9 @@ export async function extractResult(config: Config): Promise<Benchmark> {
     let benches: BenchmarkResult[];
 
     switch (tool) {
+        case 'generic':
+            benches = extractGenericResult(output);
+            break;
         case 'cargo':
             benches = extractCargoResult(output);
             break;
