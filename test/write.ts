@@ -42,11 +42,11 @@ class FakedOctokitRepos {
 const fakedRepos = new FakedOctokitRepos();
 
 class FakedOctokit {
-    repos: FakedOctokitRepos;
+    rest: { repos: FakedOctokitRepos };
     opt: { token: string };
     constructor(token: string) {
         this.opt = { token };
-        this.repos = fakedRepos;
+        this.rest = { repos: fakedRepos };
     }
 }
 
@@ -114,7 +114,12 @@ mock('@actions/core', {
         /* do nothing */
     },
 });
-mock('@actions/github', { context: gitHubContext, GitHub: FakedOctokit });
+
+mock('@actions/github', {
+    context: gitHubContext,
+    getOctokit: (token: string) => new FakedOctokit(token),
+});
+
 mock('../src/git', {
     async cmd(...args: unknown[]) {
         gitSpy.call('cmd', args);

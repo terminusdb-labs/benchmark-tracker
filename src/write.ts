@@ -223,8 +223,8 @@ async function leaveComment(commitId: string, body: string, token: string) {
 
     const repo = getCurrentRepo();
     const repoUrl = repo.html_url ?? '';
-    const client = new github.GitHub(token);
-    const res = await client.repos.createCommitComment({
+    const client = github.getOctokit(token);
+    const res = await client.rest.repos.createCommitComment({
         owner: repo.owner.login,
         repo: repo.name,
         commit_sha: commitId,
