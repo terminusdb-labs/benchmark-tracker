@@ -1,6 +1,6 @@
 import { strict as A } from 'assert';
 import * as cheerio from 'cheerio';
-import { Parser as JsParser } from 'acorn';
+import * as acorn from 'acorn';
 import { DEFAULT_INDEX_HTML } from '../src/default_index_html';
 
 describe('DEFAULT_INDEX_HTML', function () {
@@ -13,6 +13,6 @@ describe('DEFAULT_INDEX_HTML', function () {
         A.ok(src);
 
         // Verify JavaScript syntax. It raises an error if invalid
-        JsParser.parse(src as string);
+        acorn.parse(src as string, { ecmaVersion: 10 });
     });
 });
