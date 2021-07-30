@@ -27,12 +27,12 @@ mock('@actions/github', { context: dummyGitHubContext });
 
 const { extractResult } = require('../src/extract');
 
-describe('extractResult()', function() {
-    after(function() {
+describe('extractResult()', function () {
+    after(function () {
         mock.stop('@actions/github');
     });
 
-    afterEach(function() {
+    afterEach(function () {
         dummyGitHubContext.payload = dummyWebhookPayload;
     });
 
@@ -236,7 +236,7 @@ describe('extractResult()', function() {
     ];
 
     for (const test of normalCases) {
-        it('extracts benchmark output from ' + test.tool, async function() {
+        it('extracts benchmark output from ' + test.tool, async function () {
             const file = test.file ?? `${test.tool}_output.txt`;
             const outputFilePath = path.join(__dirname, 'data', 'extract', file);
             const config = {
@@ -252,7 +252,7 @@ describe('extractResult()', function() {
         });
     }
 
-    it('raises an error on unexpected tool', async function() {
+    it('raises an error on unexpected tool', async function () {
         const config = {
             tool: 'foo',
             outputFilePath: path.join(__dirname, 'data', 'extract', 'go_output.txt'),
@@ -260,7 +260,7 @@ describe('extractResult()', function() {
         await A.rejects(extractResult(config), /^Error: FATAL: Unexpected tool: 'foo'$/);
     });
 
-    it('raises an error when output file is not readable', async function() {
+    it('raises an error when output file is not readable', async function () {
         const config = {
             tool: 'go',
             outputFilePath: 'path/does/not/exist.txt',
@@ -268,7 +268,7 @@ describe('extractResult()', function() {
         await A.rejects(extractResult(config));
     });
 
-    it('raises an error when no output found', async function() {
+    it('raises an error when no output found', async function () {
         const config = {
             tool: 'cargo',
             outputFilePath: path.join(__dirname, 'data', 'extract', 'go_output.txt'),
@@ -282,7 +282,7 @@ describe('extractResult()', function() {
         file: string;
         expected: RegExp;
     }> = [
-        ...(['pytest', 'googlecpp'] as const).map(tool => ({
+        ...(['pytest', 'googlecpp'] as const).map((tool) => ({
             it: `raises an error when output file is not in JSON with tool '${tool}'`,
             tool,
             file: 'go_output.txt',
@@ -291,7 +291,7 @@ describe('extractResult()', function() {
     ];
 
     for (const t of toolSpecificErrorCases) {
-        it(t.it, async function() {
+        it(t.it, async function () {
             // Note: go_output.txt is not in JSON format!
             const outputFilePath = path.join(__dirname, 'data', 'extract', t.file);
             const config = { tool: t.tool, outputFilePath };
@@ -299,7 +299,7 @@ describe('extractResult()', function() {
         });
     }
 
-    it('collects the commit information from pull_request payload as fallback', async function() {
+    it('collects the commit information from pull_request payload as fallback', async function () {
         dummyGitHubContext.payload = {
             pull_request: {
                 title: 'this is title',
@@ -333,7 +333,7 @@ describe('extractResult()', function() {
         A.equal(commit.url, 'https://github.com/dummy/repo/pull/1/commits/abcdef0123456789');
     });
 
-    it('raises an error when commit information is not found in webhook payload', async function() {
+    it('raises an error when commit information is not found in webhook payload', async function () {
         dummyGitHubContext.payload = {};
         const outputFilePath = path.join(__dirname, 'data', 'extract', 'go_output.txt');
         const config = {
