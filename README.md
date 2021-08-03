@@ -1,10 +1,19 @@
-GitHub Action for Continuous Benchmarking
-=========================================
+Benchmark Action
+================
+<!--
 [![Action Marketplace][release-badge]][marketplace]
 [![Build Status][build-badge]][ci]
 [![codecov][codecov-badge]][codecov]
+-->
 
-[This repository][proj] provides a [GitHub Action][github-action] for continuous benchmarking.
+> [This repository][forked-repo] started as a fork of
+> [**rhysd/github-action-benchmark**][original-repo] but has since taken on a
+> life of its own.
+
+> **TODO!** Migrate the links and images from the original repository and update
+> the language.
+
+This repository provides a [GitHub Action][github-action] for continuous benchmarking.
 If your project has some benchmark suites, this action collects data from the benchmark outputs
 and monitor the results on GitHub Actions workflow.
 
@@ -519,8 +528,9 @@ For example, `rhysd/github-action-benchmark@v1` means the latest version of `1.x
 
 ### Track updates of this action
 
-To notice new version releases, please [watch 'release only'][help-watch-release] at [this repository][proj].
-Every release will appear on your GitHub notifications page.
+To notice new version releases, please [watch 'release
+only'][help-watch-release] at [this repository][original-repo]. Every release
+will appear on your GitHub notifications page.
 
 
 
@@ -559,7 +569,8 @@ Every release will appear on your GitHub notifications page.
 [codecov]: https://codecov.io/gh/rhysd/github-action-benchmark
 [release-badge]: https://img.shields.io/github/v/release/rhysd/github-action-benchmark.svg
 [marketplace]: https://github.com/marketplace/actions/continuous-benchmark
-[proj]: https://github.com/rhysd/github-action-benchmark
+[original-repo]: https://github.com/rhysd/github-action-benchmark
+[forked-repo]: https://github.com/terminusdb-labs/benchmark-action
 [rust-badge]: https://github.com/rhysd/github-action-benchmark/workflows/Rust%20Example/badge.svg
 [go-badge]: https://github.com/rhysd/github-action-benchmark/workflows/Go%20Example/badge.svg
 [benchmarkjs-badge]: https://github.com/rhysd/github-action-benchmark/workflows/Benchmark.js%20Example/badge.svg
