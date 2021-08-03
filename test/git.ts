@@ -80,7 +80,7 @@ const { cmd, pull, push } = require('../src/git');
 const ok: (x: any) => asserts x = A.ok;
 const userArgs = [
     '-c',
-    'user.name=github-action-benchmark',
+    'user.name=terminusdb-labs/benchmark-action',
     '-c',
     'user.email=github@users.noreply.github.com',
     '-c',
