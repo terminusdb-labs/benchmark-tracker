@@ -1,0 +1,16 @@
+# Ignore everything first. Several things are brought over by the
+# `prepare-release.sh` script, which causes a `git` branch change, but `git`
+# won't delete from the working directory.
+/*
+
+# Don't ignore only the files and directories included in the release.
+!LICENSE.md
+!README.md
+!action.yml
+!package-lock.json
+!package.json
+!/src
+!/node_modules
+
+# Do ignore the cache.
+/node_modules/.cache
