@@ -559,8 +559,7 @@ will appear on your GitHub notifications page.
 
 ## License
 
-[the MIT License](./LICENSE.txt)
-
+[MIT](./LICENSE.md)
 
 
 [build-badge]: https://github.com/rhysd/github-action-benchmark/workflows/CI/badge.svg?branch=master&event=push
