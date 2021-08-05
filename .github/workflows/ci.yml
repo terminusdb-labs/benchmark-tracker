@@ -253,7 +253,6 @@ jobs:
         run: |
           sudo pip install yamllint
           yamllint --strict .github/workflows
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          yml: .codecov.yml
+          files: .codecov.yml
