@@ -39,7 +39,7 @@ export async function cmd(...args: string[]): Promise<string> {
     core.debug(`Executing Git: ${args.join(' ')}`);
     const userArgs = [
         '-c',
-        'user.name=terminusdb-labs/benchmark-action',
+        'user.name=terminusdb-labs/benchmark-tracker',
         '-c',
         'user.email=github@users.noreply.github.com',
         '-c',

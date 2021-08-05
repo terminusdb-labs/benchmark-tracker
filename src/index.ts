@@ -11,7 +11,7 @@ async function main() {
     core.debug(`Benchmark result was extracted: ${bench}`);
 
     await writeBenchmark(bench, config);
-    console.log('terminusdb-labs/benchmark-action ran successfully!', '\nData:', bench);
+    console.log('terminusdb-labs/benchmark-tracker ran successfully!', '\nData:', bench);
 }
 
 main().catch((e) => core.setFailed(e.message));

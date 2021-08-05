@@ -1,5 +1,5 @@
 {
-  "name": "benchmark-action",
+  "name": "benchmark-tracker",
   "version": "0.0.1",
   "private": true,
   "description": "",
@@ -18,19 +18,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/terminusdb-labs/benchmark-action.git"
+    "url": "git+https://github.com/terminusdb-labs/benchmark-tracker.git"
   },
   "keywords": [
     "github",
     "action",
     "benchmark"
   ],
-  "author": "rhysd <https://rhysd.github.io>, TerminusDB <https://terminusdb.com/>",
+  "author": "TerminusDB <https://terminusdb.com/>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/terminusdb-labs/benchmark-action/issues"
+    "url": "https://github.com/terminusdb-labs/benchmark-tracker/issues"
   },
-  "homepage": "https://github.com/terminusdb-labs/benchmark-action",
+  "homepage": "https://github.com/terminusdb-labs/benchmark-tracker",
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/exec": "^1.1.0",

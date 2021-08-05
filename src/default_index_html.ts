@@ -101,7 +101,7 @@ export const DEFAULT_INDEX_HTML = String.raw`<!DOCTYPE html>
     <footer>
       <button id="dl-button">Download data as JSON</button>
       <div class="spacer"></div>
-      <div class="small">Powered by <a rel="noopener" href="https://github.com/terminusdb-labs/benchmark-action"><code>terminusdb-labs/benchmark-action</code></a>.</div>
+      <div class="small">Powered by <a rel="noopener" href="https://github.com/terminusdb-labs/benchmark-tracker"><code>terminusdb-labs/benchmark-tracker</code></a>.</div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.2/dist/Chart.min.js"></script>
