@@ -29,7 +29,7 @@ async function main() {
     const bench = await extract_1.extractResult(config);
     core.debug(`Benchmark result was extracted: ${bench}`);
     await write_1.writeBenchmark(bench, config);
-    console.log('github-action-benchmark was run successfully!', '\nData:', bench);
+    console.log('terminusdb-labs/benchmark-tracker ran successfully!', '\nData:', bench);
 }
 main().catch((e) => core.setFailed(e.message));
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,6 @@
 {
-  "name": "benchmark-action",
-  "version": "0.0.1",
+  "name": "benchmark-tracker",
+  "version": "0.0.2",
   "private": true,
   "description": "",
   "main": "src/index.js",
@@ -18,19 +18,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/terminusdb-labs/benchmark-action.git"
+    "url": "git+https://github.com/terminusdb-labs/benchmark-tracker.git"
   },
   "keywords": [
     "github",
     "action",
     "benchmark"
   ],
-  "author": "rhysd <https://rhysd.github.io>, TerminusDB <https://terminusdb.com/>",
+  "author": "TerminusDB <https://terminusdb.com/>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/terminusdb-labs/benchmark-action/issues"
+    "url": "https://github.com/terminusdb-labs/benchmark-tracker/issues"
   },
-  "homepage": "https://github.com/terminusdb-labs/benchmark-action",
+  "homepage": "https://github.com/terminusdb-labs/benchmark-tracker",
   "dependencies": {
     "@actions/core": "^1.4.0",
     "@actions/exec": "^1.1.0",
@@ -46,20 +46,20 @@
     "@types/markdown-it": "12.0.3",
     "@types/mocha": "^9.0.0",
     "@types/mock-require": "^2.0.0",
-    "@types/node": "^16.4.7",
+    "@types/node": "^16.4.12",
     "@types/rimraf": "^3.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
     "acorn": "^8.4.1",
     "cheerio": "^1.0.0-rc.10",
     "deep-diff": "^1.0.2",
     "deep-equal": "^2.0.5",
-    "eslint": "^7.31.0",
+    "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-mocha": "^9.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "husky": "^7.0.1",
-    "markdown-it": "^12.1.0",
+    "markdown-it": "^12.2.0",
     "mocha": "^9.0.3",
     "mock-require": "^3.0.3",
     "npm-run-all": "^4.1.5",
